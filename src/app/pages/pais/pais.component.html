@@ -1,5 +1,39 @@
-<h1>País</h1>
-<hr>
-<div class="row animated fadeIn fast">
-  xcv
+<div *ngIf="!!paisData">
+  <h1>{{ paisData.name }}</h1>
+  <hr>
+  <div class="row animated fadeIn fast">
+    <div class="col-7">
+  
+      <h5>Datos</h5>
+  
+      <ul class="list-group">
+        <li class="list-group-item">Poblacion: {{ paisData.population | number }}</li>
+        <li class="list-group-item">Área: {{ paisData.area | number }}</li>
+        <li class="list-group-item">Código Área: {{ paisData.callingCodes }}</li>
+        <li class="list-group-item">TimeZone: {{ paisData.timezones }}</li>
+      </ul>
+  
+      <hr>
+      <h5>Fronteras</h5>
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let bordes of paisData.borders">
+            {{ bordes }}
+        </li>
+      </ul>
+  
+    </div>
+  
+    <div class="col-5">
+      <h5>Bandera</h5>
+  
+      <img [src]="paisData.flag" class="bandera" [alt]="paisData.name">
+      <br>
+      <br>
+      <a class="btn btn-danger btn-block" routerLink="/">
+        Regresar
+      </a>
+  
+    </div>
+  </div>
 </div>

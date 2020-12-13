@@ -1,5 +1,7 @@
 <h1>Paises</h1>
 <hr>
 <ul class="list-group">
-  <a [routerLink]="['/pais', 'CRI']" class="list-group-item list-group-item-action animated fadeIn fast">ABC</a>
+  <a [routerLink]="['/pais', pais.alpha3Code]" *ngFor="let pais of $paises | async" class="list-group-item list-group-item-action animated fadeIn fast">
+    {{ pais.name }}
+  </a>
 </ul>
